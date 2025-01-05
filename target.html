@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ターゲット</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .rectangle {
+            width: 300px;
+            height: 150px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="rectangle" class="rectangle"></div>
+
+    <script>
+        // 初期化
+        const rectangle = document.getElementById('rectangle');
+
+        // localStorageからテキストを取得して表示
+        function updateRectangleText() {
+            const text = localStorage.getItem('rectangleText') || '';
+            rectangle.textContent = text;
+        }
+
+        // 1秒ごとにlocalStorageを監視して更新
+        setInterval(updateRectangleText, 1000);
+
+        // ページ読み込み時に1回更新
+        updateRectangleText();
+    </script>
+</body>
+</html>
